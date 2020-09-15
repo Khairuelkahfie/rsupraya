@@ -52,24 +52,26 @@
                     <h6 class="m-0 font-weight-bold text-primary">Pembayaran Rawat Jalan</h6>
                 </div>
                 <div class="card-body">
-                    <canvas id="Rjcarabayar"></canvas>
+                    <div id="chart-wrapper">
+                        <canvas id="Rjcarabayar"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tanggal Rawat Jalan</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Pasien Rawat Inap Pertahun</h6>
                 </div>
                 <div class="card-body">
-                    <canvas id="Rjtanggal"></canvas>
+                    <canvas id="Dpwaktu"></canvas>
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Dimensi Tanggal Rawat Jalan</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Pasien Rawat Jalan Pertahun</h6>
                 </div>
                 <div class="card-body">
                     <canvas id="Dptanggal"></canvas>

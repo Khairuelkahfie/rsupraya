@@ -28,10 +28,10 @@ class Admin extends CI_Controller
         );
         // var_dump($data['ridimwaktu']);
         // die();
-        // $this->load->view('template/header');
-        // $this->load->view('template/sidebar');
-        // $this->load->view('template/topbar');
-        // $this->load->view('admin/index', $data);
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('template/topbar');
+        $this->load->view('admin/index', $data);
         $this->load->view('template/footer', $data);
     }
 }
