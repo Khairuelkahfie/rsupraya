@@ -49,7 +49,7 @@
 <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
 
 <!-- chart.js -->
-<script src="<?= base_url('assets/') ?>vendor/chart.js/Chart.js"></script>
+<!-- <script src="<?= base_url('assets/') ?>vendor/chart.js/Chart.js"></script> -->
 <script src="<?= base_url('assets/') ?>js/Chart.min.js"></script>
 <script src="<?= base_url('assets/') ?>js/utils.js"></script>
 
@@ -116,6 +116,7 @@
 
 
 
+
 <script>
     var ctx = document.getElementById("Rjcarabayar").getContext('2d');
     var myChart = new Chart(ctx, {
@@ -163,15 +164,30 @@
                 pointHitRadius: 10,
                 borderWidth: 1
             }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        console.log(tooltipItem)
+                        return tooltipItem.yLabel;
+                    }
+                }
+            }
         }
 
     });
 </script>
 
+
 <script>
-    var ctx = document.getElementById("Dpwaktu").getContext('2d');
-    var myChart = new Chart(ctx, {
+    var cts = document.getElementById("Dpwaktu").getContext('2d');
+    var myChart = new Chart(cts, {
         type: 'bar',
+
         data: {
             labels: [<?php
                         foreach ($ridimwaktu as $wkt) {
@@ -180,7 +196,6 @@
                         }
                         ?>],
             datasets: [{
-                label: 'Jumlah Pasien Rawat Inap',
                 data: [<?php
                         foreach ($ridimwaktu as $wkt) {
                             $waktu = $wkt->psn;
@@ -199,23 +214,25 @@
                     }
                     ?>
                 ],
-                borderWidth: 1
             }]
         },
         options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
+            legend: {
+                display: false
+            },
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        console.log(tooltipItem)
+                        return tooltipItem.yLabel;
                     }
-                }]
+                }
             }
         }
     });
 </script>
 <script>
-    var ctx = document.getElementById("Dptanggal").getContext('2d');
-    var myChart = new Chart(ctx, {
+    var config = {
         type: 'bar',
         data: {
             labels: [<?php
@@ -225,7 +242,6 @@
                         }
                         ?>],
             datasets: [{
-                label: 'jumlah Pasien Rawat Jalan',
                 data: [<?php
                         foreach ($rjdimwaktu as $waktu) {
                             $tanggal = $waktu->pas;
@@ -246,12 +262,29 @@
                     }
                     ?>
                 ],
-                borderWidth: 1
+                borderWidth: 1,
+                fill: false
             }]
         },
+        options: {
+            legend: {
+                display: false
+            },
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        console.log(tooltipItem)
+                        return tooltipItem.yLabel;
+                    }
+                }
+            }
+        }
+    };
 
-    });
+    var ctx = document.getElementById("Dptanggal").getContext("2d");
+    new Chart(ctx, config);
 </script>
+
 
 </body>
 
