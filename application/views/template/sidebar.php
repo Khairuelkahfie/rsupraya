@@ -39,13 +39,16 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#setting" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-cogs"></i>
-                    <span>Setting</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#master" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-download"></i>
+                    <span>Master Import</span>
                 </a>
-                <div id="setting" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="master" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= site_url('importdb') ?>">Master Import </a>
+                        <!-- <a class="collapse-item" href="<?= site_url('importdb') ?>">Master Import </a> -->
+                        <h6 class="collapse-header">Rawat Inap</h6>
+                        <a class="collapse-item" href="<?= site_url('importdb/ripasien') ?>">RI Pasien</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/ribayar') ?>">RI Pembayran</a>
                     </div>
                 </div>
             </li>

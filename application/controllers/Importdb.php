@@ -1,18 +1,16 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+require_once APPPATH . 'third_party/Spout/Autoloader/autoload.php';
 
-class Importdb extends CI_Controller
+use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
+
+class importdb extends CI_Controller
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
-        if (!$this->session->userdata('username')) {
-            redirect('auth');
-        }
-        $this->load->model('Auth_model', 'auth');
         $this->load->model('Cbpasien_model', 'cbpasien');
-        $this->load->library('form_validation');
-        $this->load->library('excel');
+        $this->load->model('Ripasien_model', 'ripasien');
     }
     public function index()
     {
@@ -24,35 +22,80 @@ class Importdb extends CI_Controller
     }
     public function import()
     {
-        if (isset($_FILES["file"]["name"])) {
-            $path = $_FILES["file"]["tmp_name"];
-            $object = PHPExcel_IOFactory::load($path);
-            foreach ($object->getWorksheetIterator() as $worksheet) {
-                $highestRow = $worksheet->getHighestRow();
-                $highestColumn = $worksheet->getHighestColumn();
-                // var_dump($highestRow);
-                // var_dump($highestColumn);
-                // die();
-                for ($row = 2; $row <= $highestRow; $row++) {
-                    $sk_pasien = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-                    $bayar = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
-                    $data = array(
-                        "sk_pasien" => $sk_pasien,
-                        "carabayar" => $bayar
-                    );
+        $config['upload_path'] = './assets/excel/';
+        $config['allowed_types'] = 'xlsx|xls';
+        $config['file_name']     = 'doc' . time();
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('file')) {
+            $file = $this->upload->data();
+            $reader = ReaderEntityFactory::createXLSXReader();
+
+            $reader->open('assets/excel/' . $file['file_name']);
+            foreach ($reader->getSheetIterator() as $sheet) {
+                $numRow = 1;
+                foreach ($sheet->getRowIterator() as $row) {
+                    if ($numRow > 1) {
+                        $data = array(
+                            'sk_pasien' => $row->getCellAtIndex(0),
+                            'bayar' => $row->getCellAtIndex(1),
+                        );
+                        $this->cbpasien->insertimport($data);
+                    }
+                    $numRow++;
                 }
+                $reader->close();
+                unlink('assets/excel' . $file['file_name']);
+                $this->session->set_flashdata('pesan', 'Import Data Berhasil');
+                redirect('importdb');
             }
-            // print_r($data);
-            // die();
-
-            // Sesuaikan key array dengan nama kolom di database                                                         
-            // $data = array(
-            //     "sk_pasie" => $rowData[0][0],
-            //     "carabayar" => $rowData[0][1]
-            // );
-            $insert = $this->cbpasien->import($data);
+        } else {
+            echo "Error :" . $this->upload->display_errors();
         }
-
-        redirect('importdb');
     }
+    // rawat inap
+    // import data pasien
+    public function ripasien()
+    {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('template/topbar');
+        $this->load->view('importdb/ripasien');
+        $this->load->view('template/footer');
+    }
+    // akhir import data pasien
+    // proses input kedatabase
+    public function importripasien()
+    {
+        $config['upload_path'] = './assets/excel/';
+        $config['allowed_types'] = 'xlsx|xls';
+        $config['file_name']     = 'doc' . time();
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('file')) {
+            $file = $this->upload->data();
+            $reader = ReaderEntityFactory::createXLSXReader();
+
+            $reader->open('assets/excel/' . $file['file_name']);
+            foreach ($reader->getSheetIterator() as $sheet) {
+                $numRow = 1;
+                foreach ($sheet->getRowIterator() as $row) {
+                    if ($numRow > 1) {
+                        $data = array(
+                            'sk_pasien' => $row->getCellAtIndex(0),
+                            'no_rm' => $row->getCellAtIndex(1),
+                        );
+                        $this->ripasien->insertimport($data);
+                    }
+                    $numRow++;
+                }
+                $reader->close();
+                unlink('assets/excel' . $file['file_name']);
+                $this->session->set_flashdata('pesan', 'Import Data Berhasil');
+                redirect('importdb');
+            }
+        } else {
+            echo "Error :" . $this->upload->display_errors();
+        }
+    }
+    // akhir proses input kedatabase
+    // akhir rawat inap
 }

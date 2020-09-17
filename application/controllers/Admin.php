@@ -7,7 +7,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         if (!$this->session->userdata('username')) {
-            redirect('auth');
+            redirect('welcome');
         }
         $this->load->model('Ribayar_model', 'ribayar');
         $this->load->model('Ripasien_model', 'ripasien');

@@ -12,4 +12,12 @@ class Ripasien_model extends CI_Model
         $this->db->from($this->tabel);
         return $this->db->count_all_results();
     }
+    // import database
+    public function insertimport($data)
+    {
+        $jumlah = count($data);
+        if ($jumlah > 0) {
+            $this->db->replace($this->tabel, $data);
+        }
+    }
 }
