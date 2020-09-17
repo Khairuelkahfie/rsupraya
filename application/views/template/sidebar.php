@@ -54,6 +54,11 @@
                         <a class="collapse-item" href="<?= site_url('importdb/riruang') ?>">RI Ruangan</a>
                         <a class="collapse-item" href="<?= site_url('importdb/riwaktu') ?>">RI Waktu</a>
                         <h6 class="collapse-header">Rawat Jalan</h6>
+                        <a class="collapse-item" href="<?= site_url('importdb/rjalamat') ?>">RJ Alamat</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/rjcarabayar') ?>">RJ Pembayaran</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/rjpasien') ?>">RJ Pasien</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/rjpoli') ?>">RJ Poli</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/rjtanggal') ?>">RJ Tanggal</a>
                     </div>
                 </div>
             </li>

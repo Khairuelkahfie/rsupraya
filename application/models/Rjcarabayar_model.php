@@ -14,4 +14,11 @@ class Rjcarabayar_model extends CI_Model
         $hasil = $this->db->get($this->tabel)->result_array();
         return $hasil;
     }
+    public function insertimport($data)
+    {
+        $jumlah = count($data);
+        if ($jumlah > 0) {
+            $this->db->replace($this->tabel, $data);
+        }
+    }
 }

@@ -30,4 +30,11 @@ class Rjtanggal_model extends CI_Model
         $this->db->group_by('tahun');
         return $query = $this->db->get()->result();
     }
+    public function insertimport($data)
+    {
+        $jumlah = count($data);
+        if ($jumlah > 0) {
+            $this->db->replace($this->tabel, $data);
+        }
+    }
 }
