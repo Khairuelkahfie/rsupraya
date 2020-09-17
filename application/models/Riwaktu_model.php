@@ -30,4 +30,13 @@ class Riwaktu_model extends CI_Model
         $this->db->group_by('tahun');
         return $query = $this->db->get()->result();
     }
+    public function insertimport($data)
+    {
+        $jumlah = count($data);
+        // var_dump($data);
+        // die();
+        if ($jumlah > 0) {
+            $this->db->replace($this->tabel, $data);
+        }
+    }
 }

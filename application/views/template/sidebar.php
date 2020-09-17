@@ -19,7 +19,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?= base_url('admin') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -48,7 +48,12 @@
                         <!-- <a class="collapse-item" href="<?= site_url('importdb') ?>">Master Import </a> -->
                         <h6 class="collapse-header">Rawat Inap</h6>
                         <a class="collapse-item" href="<?= site_url('importdb/ripasien') ?>">RI Pasien</a>
-                        <a class="collapse-item" href="<?= site_url('importdb/ribayar') ?>">RI Pembayran</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/ribayar') ?>">RI Pembayaran</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/rikelas') ?>">RI Kelas</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/ripoli') ?>">RI Poli</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/riruang') ?>">RI Ruangan</a>
+                        <a class="collapse-item" href="<?= site_url('importdb/riwaktu') ?>">RI Waktu</a>
+                        <h6 class="collapse-header">Rawat Jalan</h6>
                     </div>
                 </div>
             </li>
