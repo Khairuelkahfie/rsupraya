@@ -10,7 +10,6 @@ class Rjcarabayar_model extends CI_Model
     {
         $this->db->select('cara_bayar, COUNT(cara_bayar) as total');
         $this->db->group_by('cara_bayar');
-        $this->db->order_by('total');
         $hasil = $this->db->get($this->tabel)->result_array();
         return $hasil;
     }

@@ -285,6 +285,131 @@
     new Chart(ctx, config);
 </script>
 
+<script>
+    var config = {
+        type: 'bar',
+        data: {
+            labels: [<?php
+                        foreach ($penyakitri as $penyakit) {
+                            $penyakit = $penyakit->jenis_penyakit;
+                            echo "'$penyakit'" . ",";
+                        }
+                        ?>],
+            datasets: [{
+                data: [<?php
+                        foreach ($penyakitri as $penyakit) {
+                            $penyakit = $penyakit->t;
+                            echo "'$penyakit'" . ",";
+                        }
+                        ?>],
+                backgroundColor: [
+                    <?php
+                    foreach ($penyakitri as $penyakit) {
+                        echo "'rgb(255, 87, 51)',";
+                    }
+                    ?>
+                ],
+                borderColor: [
+                    <?php
+                    foreach ($penyakitri as $penyakit) {
+                        echo "'rgb(255, 87, 51)',";
+                    }
+                    ?>
+                ],
+                borderWidth: 1,
+                fill: false
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        console.log(tooltipItem)
+                        return tooltipItem.yLabel;
+                    }
+                }
+            }
+        }
+    };
+
+    var ctx = document.getElementById("penyakitri").getContext("2d");
+    new Chart(ctx, config);
+</script>
+<script>
+    var lineChartData = {
+        labels: [<?php
+                    foreach ($penyakitrijk as $penyakit) {
+                        $penyakit = $penyakit->jenis_penyakit;
+                        echo "'$penyakit'" . ",";
+                    }
+                    ?>],
+        datasets: [{
+            label: 'Laki Laki',
+            borderColor: window.chartColors.red,
+            backgroundColor: window.chartColors.red,
+            fill: false,
+            data: [<?php
+                    foreach ($penyakitrijk as $penyakit) {
+                        $penyakit = $penyakit->lk;
+                        echo "'$penyakit'" . ",";
+                    }
+                    ?>],
+            yAxisID: 'y-axis-1',
+        }, {
+            label: 'Perempuan',
+            borderColor: window.chartColors.blue,
+            backgroundColor: window.chartColors.blue,
+            fill: false,
+            data: [
+                <?php
+                foreach ($penyakitrijk as $penyakit) {
+                    $penyakit = $penyakit->pr;
+                    echo "'$penyakit'" . ",";
+                }
+                ?>
+            ],
+            yAxisID: 'y-axis-2'
+        }]
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById('penyakitrijk').getContext('2d');
+        window.myLine = Chart.Line(ctx, {
+            data: lineChartData,
+            options: {
+                responsive: true,
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    // text: 'Chart.js Line Chart - Multi Axis'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                        display: true,
+                        position: 'left',
+                        id: 'y-axis-1',
+                    }, {
+                        type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                        display: true,
+                        position: 'right',
+                        id: 'y-axis-2',
+
+                        // grid line settings
+                        gridLines: {
+                            drawOnChartArea: false, // only want the grid lines for one axis to show up
+                        },
+                    }],
+                }
+            }
+        });
+    };
+</script>
+
 
 </body>
 

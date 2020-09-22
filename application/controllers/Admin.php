@@ -15,6 +15,7 @@ class Admin extends CI_Controller
         $this->load->model('Rjcarabayar_model', 'rjbayar');
         $this->load->model('Rjpasien_model', 'rjpasien');
         $this->load->model('Rjtanggal_model', 'rjtanggal');
+        $this->load->model('Penyakitri_model', 'penyakitri');
     }
     public function index()
     {
@@ -25,9 +26,12 @@ class Admin extends CI_Controller
             'rjbayar'     => $this->rjbayar->tampilcarabayar(),
             'rjpasien'    => $this->rjpasien->tampiljumlahpasien(),
             'rjdimwaktu'  => $this->rjtanggal->tampil(),
+            'penyakitri'  => $this->penyakitri->tampilpenyakit(),
+            'penyakitrijk'  => $this->penyakitri->tampilpenyakitjk()
         );
-        // var_dump($data['ridimwaktu']);
+        // var_dump($data['penyakitrijk']);
         // die();
+
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
