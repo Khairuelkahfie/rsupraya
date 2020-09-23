@@ -58,6 +58,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -78,7 +80,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Jumlah Penyakit</h6>
@@ -88,7 +92,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Jumlah Penyakit Berdasrakan Jenis Kelamin</h6>
@@ -99,6 +105,7 @@
             </div>
         </div>
     </div>
+
 </div>
 <!-- /.container-fluid -->
 

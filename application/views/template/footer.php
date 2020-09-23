@@ -348,8 +348,8 @@
                     ?>],
         datasets: [{
             label: 'Laki Laki',
-            borderColor: window.chartColors.red,
-            backgroundColor: window.chartColors.red,
+            borderColor: window.chartColors.blue,
+            backgroundColor: window.chartColors.blue,
             fill: false,
             data: [<?php
                     foreach ($penyakitrijk as $penyakit) {
@@ -360,8 +360,8 @@
             yAxisID: 'y-axis-1',
         }, {
             label: 'Perempuan',
-            borderColor: window.chartColors.blue,
-            backgroundColor: window.chartColors.blue,
+            borderColor: window.chartColors.red,
+            backgroundColor: window.chartColors.red,
             fill: false,
             data: [
                 <?php

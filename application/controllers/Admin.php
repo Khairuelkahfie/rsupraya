@@ -38,4 +38,8 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $data);
         $this->load->view('template/footer', $data);
     }
+    public function coba()
+    {
+        echo "percobaan ";
+    }
 }
