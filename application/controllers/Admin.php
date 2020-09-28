@@ -16,6 +16,7 @@ class Admin extends CI_Controller
         $this->load->model('Rjpasien_model', 'rjpasien');
         $this->load->model('Rjtanggal_model', 'rjtanggal');
         $this->load->model('Penyakitri_model', 'penyakitri');
+        $this->load->model('Rjalamat_model', 'rjalamat');
     }
     public function index()
     {
@@ -27,9 +28,10 @@ class Admin extends CI_Controller
             'rjpasien'    => $this->rjpasien->tampiljumlahpasien(),
             'rjdimwaktu'  => $this->rjtanggal->tampil(),
             'penyakitri'  => $this->penyakitri->tampilpenyakit(),
-            'penyakitrijk'  => $this->penyakitri->tampilpenyakitjk()
+            'penyakitrijk'  => $this->penyakitri->tampilpenyakitjk(),
+            'alamat'    => $this->rjalamat->persebaran()
         );
-        // var_dump($data['penyakitrijk']);
+        // var_dump($data['alamat']);
         // die();
 
         $this->load->view('template/header');
@@ -37,6 +39,13 @@ class Admin extends CI_Controller
         $this->load->view('template/topbar');
         $this->load->view('admin/index', $data);
         $this->load->view('template/footer', $data);
+    }
+    public function alamat()
+    {
+        $data = array(
+            'alamat'    => $this->rjalamat->persebaran()
+        );
+        $this->load->view('alamat', $data);
     }
     public function peta()
     {

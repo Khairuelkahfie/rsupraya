@@ -40,13 +40,36 @@
             attribution: mbAttr
         });
         var peta = L.map('mapku', {
-            center: [-8.5732202, 116.1033006],
-            zoom: 10.25,
+            center: [-8.5481356, 116.4674421],
+            zoom: 10,
             layers: [streets]
         });
 
+        // function getColor(d) {
+        //     return d > 1000 ? '#800026' :
+        //         d > 500 ? '#BD0026' :
+        //         d > 200 ? '#E31A1C' :
+        //         d > 100 ? '#FC4E2A' :
+        //         d > 50 ? '#FD8D3C' :
+        //         d > 20 ? '#FEB24C' :
+        //         d > 10 ? '#FED976' :
+        //         '#FFEDA0';
+        // }
+        // //json batas wilayah kecamatan
+        // function style(feature) {
+        //     return {
+        //         fillColor: getColor(feature.properties.density),
+        //         weight: 2,
+        //         opacity: 1,
+        //         color: 'white',
+        //         dashArray: '3',
+        //         fillOpacity: 0.7
+        //     };
+        // }
 
-        //json batas wilayah kecamatan
+        // L.geoJson(btskab, {
+        //     style: style
+        // }).addTo(peta);
 
         var bk = L.geoJSON([batu_keliang], {
             style: function(featur) {

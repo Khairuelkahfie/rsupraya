@@ -15,4 +15,12 @@ class Rjalamat_model extends CI_Model
             $this->db->replace($this->tabel, $data);
         }
     }
+    public function persebaran()
+    {
+        $this->db->select('*');
+        $this->db->select('COUNT(alamat) as al');
+        $this->db->group_by('alamat');
+        $hasil = $this->db->get($this->tabel)->result();
+        return $hasil;
+    }
 }
