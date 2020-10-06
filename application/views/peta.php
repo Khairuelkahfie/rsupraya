@@ -8,7 +8,7 @@
     <title>Peta Lombok Tengah</title>
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>leaflet/leaflet.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>css/style.css">
-   
+   width
    
 </head>
 
@@ -35,18 +35,18 @@
     var kec = L.layerGroup();
        
 
-        L.marker([-8.8407109, 116.2068354]).bindPopup(<?= $Bk['kecamatan'] . ' '. $Bk['al'] ?>).addTo(kec),
-        L.marker([-8.7728698, 116.1713917]).bindPopup(<?= $Bk['kecamatan'] . ' '. $Bk['al'] ?>).addTo(kec),
-        L.marker([-8.8336359, 116.3013267]).bindPopup('PUJUT, CO.').addTo(kec),
-        L.marker([-8.7771594, 116.3839765]).bindPopup('Praya Timur, CO.').addTo(kec);
-        L.marker([-8.71513, 116.4075854]).bindPopup('Janapria, CO.').addTo(kec);
-        L.marker([-8.641832, 116.3563]).bindPopup('KOPANG, CO.').addTo(kec);
-        L.marker([-8.72174,	116.288597]).bindPopup('PRAYA, CO.').addTo(kec);
-        L.marker([-8.7221426, 116.3131356]).bindPopup('PRAYA TENGAH, CO.').addTo(kec);
-        L.marker([-8.6688303, 116.2186488]).bindPopup('JONGGAT, CO.').addTo(kec);
-        L.marker([-8.6068562, 116.2422739]).bindPopup('PRINGGARATA , CO.').addTo(kec);
-        L.marker([-8.621743, 116.3131356]).bindPopup('BATUKLIANG , CO.').addTo(kec);
-        L.marker([	-8.468864, 116.3485586]).bindPopup('	BATUKLIANG UTARA , CO.').addTo(kec);
+        L.marker([-8.8407109, 116.2068354]).bindPopup("<h3 style='width : 100px;'><?= $prb['kecamatan'] . ' '. $prb['al'] . ' Org' ?></h3>").addTo(kec),
+        L.marker([-8.7728698, 116.1713917]).bindPopup("<h3 style='width : 100px;'><?= $pbd['kecamatan'] . ' '. $pbd['al'] . 'Org'?></h3>").addTo(kec),
+        L.marker([-8.8336359, 116.3013267]).bindPopup("<h3 style='width : 100px;'><?= $pjt['kecamatan'] . ' '. $pjt['al'] . 'Org'?></h3>").addTo(kec),
+        L.marker([-8.7771594, 116.3839765]).bindPopup("<h3 style='width : 100px;'><?= $pti['kecamatan'] . ' '. $pti['al'] . 'Org'?></h3>").addTo(kec);
+        L.marker([-8.71513, 116.4075854]).bindPopup("<h3 style='width : 100px;'><?= $jnp['kecamatan'] . ' '. $jnp['al'] . 'Org'?></h3>").addTo(kec);
+        L.marker([-8.641832, 116.3563]).bindPopup("<h3 style='width : 100px;'><?= $kpg['kecamatan'] . ' '. $kpg['al'] . 'Org'?></h3>").addTo(kec);
+        L.marker([-8.72174,	116.288597]).bindPopup("<h3 style='width : 100px;'><?= $pry['kecamatan'] . ' '. $pry['al'] . 'Org'?></h3>").addTo(kec);
+        L.marker([-8.7221426, 116.3131356]).bindPopup("<h3 style='width : 100px;'><?= $prt['kecamatan'] . ' '. $prt['al'] . 'Org'?></h3>").addTo(kec);
+        L.marker([-8.6688303, 116.2186488]).bindPopup("<h3 style='width : 100px;'><?= $jgt['kecamatan'] . ' '. $jgt['al'] . 'Org'?></h3>").addTo(kec);
+        L.marker([-8.6068562, 116.2422739]).bindPopup("<h3 style='width : 100px;'><?= $prg['kecamatan'] . ' '. $prg['al'] . 'Org'?></h3>").addTo(kec);
+        L.marker([-8.621743, 116.3131356]).bindPopup("<h3 style='width : 100px;'><?= $Bk['kecamatan'] . ' '. $Bk['al'] . 'Org'?></h3>").addTo(kec);
+        L.marker([	-8.468864, 116.3485586]).bindPopup("<h3 style='width : 100px;'><?= $Bku['kecamatan'] . ' '. $Bku['al'] . 'Org'?></h3>").addTo(kec);
         
     
 
