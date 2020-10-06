@@ -8,6 +8,8 @@
     <title>Peta Lombok Tengah</title>
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>leaflet/leaflet.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>css/style.css">
+   
+   
 </head>
 
 <body>
@@ -30,46 +32,50 @@
     <script src="<?= base_url('assets/') ?>js/pujut.js"></script>
     <script src="<?= base_url('assets/') ?>js/loteng.js"></script>
     <script>
+    var kec = L.layerGroup();
+       
+
+        L.marker([-8.8407109, 116.2068354]).bindPopup(<?= $Bk['kecamatan'] . ' '. $Bk['al'] ?>).addTo(kec),
+        L.marker([-8.7728698, 116.1713917]).bindPopup(<?= $Bk['kecamatan'] . ' '. $Bk['al'] ?>).addTo(kec),
+        L.marker([-8.8336359, 116.3013267]).bindPopup('PUJUT, CO.').addTo(kec),
+        L.marker([-8.7771594, 116.3839765]).bindPopup('Praya Timur, CO.').addTo(kec);
+        L.marker([-8.71513, 116.4075854]).bindPopup('Janapria, CO.').addTo(kec);
+        L.marker([-8.641832, 116.3563]).bindPopup('KOPANG, CO.').addTo(kec);
+        L.marker([-8.72174,	116.288597]).bindPopup('PRAYA, CO.').addTo(kec);
+        L.marker([-8.7221426, 116.3131356]).bindPopup('PRAYA TENGAH, CO.').addTo(kec);
+        L.marker([-8.6688303, 116.2186488]).bindPopup('JONGGAT, CO.').addTo(kec);
+        L.marker([-8.6068562, 116.2422739]).bindPopup('PRINGGARATA , CO.').addTo(kec);
+        L.marker([-8.621743, 116.3131356]).bindPopup('BATUKLIANG , CO.').addTo(kec);
+        L.marker([	-8.468864, 116.3485586]).bindPopup('	BATUKLIANG UTARA , CO.').addTo(kec);
+        
+    
+
         var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+        var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr}),
+		    streets  = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+
+        var peta = L.map('mapku', {
+        center: [-8.6768427, 116.2127555], 
+        zoom: 11,
+        layers: [streets, grayscale, kec]
+        });
+        var baseLayers = {
+		"Grayscale": grayscale,
+		"Streets": streets
+        };
+
+        var overlays = {
+            "Cities": kec
+        };
 
         var streets = L.tileLayer(mbUrl, {
             id: 'mapbox.streets',
             attribution: mbAttr
         });
-        var peta = L.map('mapku', {
-            center: [-8.5481356, 116.4674421],
-            zoom: 10,
-            layers: [streets]
-        });
-
-        // function getColor(d) {
-        //     return d > 1000 ? '#800026' :
-        //         d > 500 ? '#BD0026' :
-        //         d > 200 ? '#E31A1C' :
-        //         d > 100 ? '#FC4E2A' :
-        //         d > 50 ? '#FD8D3C' :
-        //         d > 20 ? '#FEB24C' :
-        //         d > 10 ? '#FED976' :
-        //         '#FFEDA0';
-        // }
-        // //json batas wilayah kecamatan
-        // function style(feature) {
-        //     return {
-        //         fillColor: getColor(feature.properties.density),
-        //         weight: 2,
-        //         opacity: 1,
-        //         color: 'white',
-        //         dashArray: '3',
-        //         fillOpacity: 0.7
-        //     };
-        // }
-
-        // L.geoJson(btskab, {
-        //     style: style
-        // }).addTo(peta);
+       
 
         var bk = L.geoJSON([batu_keliang], {
             style: function(featur) {
@@ -147,6 +153,7 @@
                 return feature.properties && feature.properties.style;
             }
         }).addTo(peta);
+        L.control.layers(baseLayers, overlays).addTo(peta);
     </script>
 </body>
 

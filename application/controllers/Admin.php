@@ -49,6 +49,23 @@ class Admin extends CI_Controller
     }
     public function peta()
     {
-        $this->load->view('peta');
+        $alamat = $this->rjalamat->persebaran();
+        // var_dump($alamat);
+        // die();
+        $data  = array(
+            'Bk' => $alamat[0] , 
+            'Bku' => $alamat[1] , 
+            'jnp' => $alamat[2] , 
+            'jgt' => $alamat[3] , 
+            'kpg' => $alamat[4] , 
+            'pry' => $alamat[5] , 
+            'prb' => $alamat[6] , 
+            'pbd' => $alamat[7] , 
+            'prt' => $alamat[8] , 
+            'pti' => $alamat[9] , 
+            'prg' => $alamat[10] , 
+            'pjt' => $alamat[11] , 
+        );
+        $this->load->view('peta',$data);
     }
 }
