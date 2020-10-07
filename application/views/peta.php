@@ -8,7 +8,7 @@
     <title>Peta Lombok Tengah</title>
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>leaflet/leaflet.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>css/style.css">
-   width
+   
    
 </head>
 
@@ -48,7 +48,7 @@
         L.marker([-8.621743, 116.3131356]).bindPopup("<h3 style='width : 100px;'><?= $Bk['kecamatan'] . ' '. $Bk['al'] . 'Org'?></h3>").addTo(kec);
         L.marker([	-8.468864, 116.3485586]).bindPopup("<h3 style='width : 100px;'><?= $Bku['kecamatan'] . ' '. $Bku['al'] . 'Org'?></h3>").addTo(kec);
         
-    
+              
 
         var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -68,16 +68,29 @@
         };
 
         var overlays = {
-            "Cities": kec
+            "Kecamatan": kec
         };
 
         var streets = L.tileLayer(mbUrl, {
             id: 'mapbox.streets',
             attribution: mbAttr
         });
+        function style(feature) {
+            return {
+                fillColor: '#800026',
+                // co : '#FFF8DC',
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
        
-
         var bk = L.geoJSON([batu_keliang], {
+            color : function style(){
+                fillColor
+            } ,
             style: function(featur) {
                 return featur.properties && featur.properties.style;
             }

@@ -20,6 +20,7 @@ class Admin extends CI_Controller
     }
     public function index()
     {
+        $alamat = $this->rjalamat->persebaran();
         $data = array(
             'ribayar'     => $this->ribayar->tampilcarabayar(),
             'ripasien'    => $this->ripasien->tampiljumlahpasien(),
@@ -29,7 +30,19 @@ class Admin extends CI_Controller
             'rjdimwaktu'  => $this->rjtanggal->tampil(),
             'penyakitri'  => $this->penyakitri->tampilpenyakit(),
             'penyakitrijk'  => $this->penyakitri->tampilpenyakitjk(),
-            'alamat'    => $this->rjalamat->persebaran()
+            'alamat'    => $this->rjalamat->persebaran(),
+            'Bk' => $alamat[0] , 
+            'Bku' => $alamat[1] , 
+            'jnp' => $alamat[2] , 
+            'jgt' => $alamat[3] , 
+            'kpg' => $alamat[4] , 
+            'pry' => $alamat[5] , 
+            'prb' => $alamat[6] , 
+            'pbd' => $alamat[7] , 
+            'prt' => $alamat[8] , 
+            'pti' => $alamat[9] , 
+            'prg' => $alamat[10] , 
+            'pjt' => $alamat[11] , 
         );
         // var_dump($data['alamat']);
         // die();
@@ -50,8 +63,9 @@ class Admin extends CI_Controller
     public function peta()
     {
         $alamat = $this->rjalamat->persebaran();
-        // var_dump($alamat);
+        // echo json_encode($alamat);
         // die();
+        // echo json_encode($items);
         $data  = array(
             'Bk' => $alamat[0] , 
             'Bku' => $alamat[1] , 
