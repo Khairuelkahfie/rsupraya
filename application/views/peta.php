@@ -30,7 +30,8 @@
     <script src="<?= base_url('assets/') ?>js/praya_timur.js"></script>
     <script src="<?= base_url('assets/') ?>js/peringgarata.js"></script>
     <script src="<?= base_url('assets/') ?>js/pujut.js"></script>
-    <script src="<?= base_url('assets/') ?>js/loteng.js"></script>
+    <!-- <script src="<?= base_url('assets/') ?>js/loteng.js"></script> -->
+    <script src="<?= base_url('assets/') ?>js/leaflet.uGeoJSON.js"></script>
     <script>
     var kec = L.layerGroup();
        
@@ -50,12 +51,9 @@
         
               
 
-        var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
-        var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr}),
-		    streets  = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+        var mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+        var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1 }),
+		    streets  = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1 });
 
         var peta = L.map('mapku', {
         center: [-8.6768427, 116.2127555], 
@@ -73,24 +71,13 @@
 
         var streets = L.tileLayer(mbUrl, {
             id: 'mapbox.streets',
-            attribution: mbAttr
         });
-        function style(feature) {
-            return {
-                fillColor: '#800026',
-                // co : '#FFF8DC',
-                weight: 2,
-                opacity: 1,
-                color: 'white',
-                dashArray: '3',
-                fillOpacity: 0.7
-            };
-        }
-       
+        // ambil data dari database
+        var alamat = <?=   $datak ;?>
+
+        
+        
         var bk = L.geoJSON([batu_keliang], {
-            color : function style(){
-                fillColor
-            } ,
             style: function(featur) {
                 return featur.properties && featur.properties.style;
             }
@@ -161,12 +148,13 @@
                 return featur.properties && featur.properties.style;
             }
         }).addTo(peta);
-        L.geoJSON([btskab], {
-            style: function(feature) {
-                return feature.properties && feature.properties.style;
-            }
-        }).addTo(peta);
+        // L.geoJSON([btskab], {
+        //     style: function(feature) {
+        //         return feature.properties && feature.properties.style;
+        //     }
+        // }).addTo(peta);
         L.control.layers(baseLayers, overlays).addTo(peta);
+        
     </script>
 </body>
 

@@ -17,7 +17,7 @@ class Rjalamat_model extends CI_Model
     }
     public function persebaran()
     {
-        $this->db->select('*');
+        $this->db->select('kecamatan');
         $this->db->select('COUNT(kecamatan) as al');
         $this->db->group_by('kecamatan');
         $hasil = $this->db->get($this->tabel)->result_array();

@@ -63,10 +63,12 @@ class Admin extends CI_Controller
     public function peta()
     {
         $alamat = $this->rjalamat->persebaran();
-        // echo json_encode($alamat);
-        // die();
-        // echo json_encode($items);
+        
+       
+        
         $data  = array(
+            'datak' => json_encode($alamat),
+            'data' => $alamat,
             'Bk' => $alamat[0] , 
             'Bku' => $alamat[1] , 
             'jnp' => $alamat[2] , 
@@ -80,6 +82,8 @@ class Admin extends CI_Controller
             'prg' => $alamat[10] , 
             'pjt' => $alamat[11] , 
         );
+        // echo $data['data'];
+        // die();
         $this->load->view('peta',$data);
     }
 }
