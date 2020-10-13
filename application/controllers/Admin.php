@@ -63,9 +63,6 @@ class Admin extends CI_Controller
     public function peta()
     {
         $alamat = $this->rjalamat->persebaran();
-        
-       
-        
         $data  = array(
             'datak' => json_encode($alamat),
             'data' => $alamat,
@@ -86,4 +83,10 @@ class Admin extends CI_Controller
         // die();
         $this->load->view('peta',$data);
     }
+    public function ala(){
+        $alamat = $this->rjalamat->persebaran();
+        // var_dump($alamat);
+        return json_encode($alamat);
+    }
+
 }

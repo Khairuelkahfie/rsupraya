@@ -359,6 +359,7 @@
                 backgroundColor: [<?php
                                     foreach ($ridimwaktu as $wkt) {
                                         echo "'rgba(255, 195, 48, 1)',";
+                                       
                                     }
                                     ?>],
                 borderColor: [
