@@ -54,158 +54,8 @@
 <!-- <script src="<?= base_url('assets/') ?>vendor/chart.js/Chart.js"></script> -->
 <script src="<?= base_url('assets/') ?>js/Chart.min.js"></script>
 <script src="<?= base_url('assets/') ?>js/utils.js"></script>
-<!-- peta -->
-<script type="text/javascript" src="<?= base_url('assets/') ?>leaflet/leaflet.js"></script>
-<script src="<?= base_url('assets/') ?>js/batu_keliang.js"></script>
-<script src="<?= base_url('assets/') ?>js/batu_keliang_utara.js"></script>
-<script src="<?= base_url('assets/') ?>js/janapria.js"></script>
-<script src="<?= base_url('assets/') ?>js/jonggat.js"></script>
-<script src="<?= base_url('assets/') ?>js/kopang.js"></script>
-<script src="<?= base_url('assets/') ?>js/praya.js"></script>
-<script src="<?= base_url('assets/') ?>js/praya_barat.js"></script>
-<script src="<?= base_url('assets/') ?>js/praya_barat_daya.js"></script>
-<script src="<?= base_url('assets/') ?>js/praya_tengah.js"></script>
-<script src="<?= base_url('assets/') ?>js/praya_timur.js"></script>
-<script src="<?= base_url('assets/') ?>js/peringgarata.js"></script>
-<script src="<?= base_url('assets/') ?>js/pujut.js"></script>
-<script src="<?= base_url('assets/') ?>js/loteng.js"></script>
 
-<script>
-    var kec = L.layerGroup();
-       
 
-        L.marker([-8.8407109, 116.2068354]).bindPopup("<h3 style='width : 100px;'><?= $prb['kecamatan'] . ' '. $prb['al'] . ' Org' ?></h3>").addTo(kec),
-        L.marker([-8.7728698, 116.1713917]).bindPopup("<h3 style='width : 100px;'><?= $pbd['kecamatan'] . ' '. $pbd['al'] . 'Org'?></h3>").addTo(kec),
-        L.marker([-8.8336359, 116.3013267]).bindPopup("<h3 style='width : 100px;'><?= $pjt['kecamatan'] . ' '. $pjt['al'] . 'Org'?></h3>").addTo(kec),
-        L.marker([-8.7771594, 116.3839765]).bindPopup("<h3 style='width : 100px;'><?= $pti['kecamatan'] . ' '. $pti['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.71513, 116.4075854]).bindPopup("<h3 style='width : 100px;'><?= $jnp['kecamatan'] . ' '. $jnp['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.641832, 116.3563]).bindPopup("<h3 style='width : 100px;'><?= $kpg['kecamatan'] . ' '. $kpg['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.72174,	116.288597]).bindPopup("<h3 style='width : 100px;'><?= $pry['kecamatan'] . ' '. $pry['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.7221426, 116.3131356]).bindPopup("<h3 style='width : 100px;'><?= $prt['kecamatan'] . ' '. $prt['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.6688303, 116.2186488]).bindPopup("<h3 style='width : 100px;'><?= $jgt['kecamatan'] . ' '. $jgt['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.6068562, 116.2422739]).bindPopup("<h3 style='width : 100px;'><?= $prg['kecamatan'] . ' '. $prg['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.621743, 116.3131356]).bindPopup("<h3 style='width : 100px;'><?= $Bk['kecamatan'] . ' '. $Bk['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([	-8.468864, 116.3485586]).bindPopup("<h3 style='width : 100px;'><?= $Bku['kecamatan'] . ' '. $Bku['al'] . 'Org'?></h3>").addTo(kec);
-        
-              
-
-        var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
-        var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr}),
-		    streets  = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
-
-        var peta = L.map('mapku', {
-        center: [-8.6768427, 116.2127555], 
-        zoom: 11,
-        layers: [streets, grayscale, kec]
-        });
-        var baseLayers = {
-		"Grayscale": grayscale,
-		"Streets": streets
-        };
-
-        var overlays = {
-            "Kecamatan": kec
-        };
-
-        var streets = L.tileLayer(mbUrl, {
-            id: 'mapbox.streets',
-            attribution: mbAttr
-        });
-        function style(feature) {
-            return {
-                fillColor: '#800026',
-                weight: 2,
-                opacity: 1,
-                color: 'white',
-                dashArray: '3',
-                fillOpacity: 0.7
-            };
-        }
-       
-        var bk = L.geoJSON([batu_keliang], {
-            color : function style(){
-                fillColor
-            } ,
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var bku = L.geoJSON([batu_keliang_utara], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var jnp = L.geoJSON([janapria], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var jng = L.geoJSON([jonggat], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var kpg = L.geoJSON([kopang], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var pry = L.geoJSON([praya], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var prateng = L.geoJSON([praya_tengah], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var prabada = L.geoJSON([praya_barat_daya], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var praba = L.geoJSON([praya_barat], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var pratim = L.geoJSON([praya_timur], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var prg = L.geoJSON([peringgarata], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-
-        var pjt = L.geoJSON([pujut], {
-            style: function(featur) {
-                return featur.properties && featur.properties.style;
-            }
-        }).addTo(peta);
-        L.geoJSON([btskab], {
-            style: function(feature) {
-                return feature.properties && feature.properties.style;
-            }
-        }).addTo(peta);
-        L.control.layers(baseLayers, overlays).addTo(peta);
-    </script>
 
 <script>
     var canvasAG = document.getElementById("Ribayar");
@@ -263,7 +113,9 @@
                     borderWidth: 1
                 }
             }
-        },
+            
+        }
+       
 
     });
 </script>
@@ -330,26 +182,49 @@
                         return tooltipItem.yLabel;
                     }
                 }
-            }
+            },
+            events: false,
+            tooltips: {
+                enabled: false
+            },
+            hover: {
+                animationDuration: 0
+            },
+            animation: {
+                duration: 1,
+                onComplete: function () {
+                    var chartInstance = this.chart,
+                        ctx = chartInstance.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];                            
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },
         }
 
     });
 </script>
 
-
 <script>
-    var cts = document.getElementById("Dpwaktu").getContext('2d');
-    var myChart = new Chart(cts, {
-        type: 'bar',
-
-        data: {
-            labels: [<?php
-                        foreach ($ridimwaktu as $wkt) {
-                            $waktu = $wkt->tahun;
-                            echo "'$waktu'" . ",";
-                        }
-                        ?>],
-            datasets: [{
+var chartData = {
+    labels: [<?php
+                foreach ($ridimwaktu as $wkt) {
+                    $waktu = $wkt->tahun;
+                    echo "'$waktu'" . ",";
+                }
+            ?>],
+        datasets: [
+            {
+                fillColor: "#79D1CF",
+                strokeColor: "#79D1CF",
                 data: [<?php
                         foreach ($ridimwaktu as $wkt) {
                             $waktu = $wkt->psn;
@@ -369,23 +244,58 @@
                     }
                     ?>
                 ],
-            }]
-        },
-        options: {
-            legend: {
-                display: false
-            },
-            tooltips: {
-                callbacks: {
-                    label: function(tooltipItem) {
-                        console.log(tooltipItem)
-                        return tooltipItem.yLabel;
-                    }
-                }
+            }
+        ]
+
+    };
+
+var opt = {
+    events: false,
+    tooltips: {
+        enabled: false
+    },
+    hover: {
+        animationDuration: 0
+    },
+    animation: {
+        duration: 1,
+        onComplete: function () {
+            var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+
+            this.data.datasets.forEach(function (dataset, i) {
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];                            
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                });
+            });
+        }
+    },
+    legend: {
+        display: false
+    },
+    tooltips: {
+        callbacks: {
+            label: function(tooltipItem) {
+                console.log(tooltipItem)
+                return tooltipItem.yLabel;
             }
         }
-    });
+    }
+};
+ var ctx = document.getElementById("Dpwaktu"),
+     myLineChart = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: opt
+     });
 </script>
+
+
 <script>
     var config = {
         type: 'bar',
@@ -432,7 +342,32 @@
                         return tooltipItem.yLabel;
                     }
                 }
-            }
+            },
+            events: false,
+            tooltips: {
+                enabled: false
+            },
+            hover: {
+                animationDuration: 0
+            },
+            animation: {
+                duration: 1,
+                onComplete: function () {
+                    var chartInstance = this.chart,
+                        ctx = chartInstance.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];                            
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },
         }
     };
 
@@ -486,6 +421,31 @@
                         return tooltipItem.yLabel;
                     }
                 }
+            },
+            events: false,
+            tooltips: {
+                enabled: false
+            },
+            hover: {
+                animationDuration: 0
+            },
+            animation: {
+                duration: 1,
+                onComplete: function () {
+                    var chartInstance = this.chart,
+                        ctx = chartInstance.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];                            
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
             }
         }
     };
@@ -527,7 +487,8 @@
                 ?>
             ],
             yAxisID: 'y-axis-2'
-        }]
+        }],
+        
     };
 
     window.onload = function() {
@@ -559,6 +520,31 @@
                             drawOnChartArea: false, // only want the grid lines for one axis to show up
                         },
                     }],
+                },
+                events: false,
+                tooltips: {
+                    enabled: false
+                },
+                hover: {
+                    animationDuration: 0
+                },
+                animation: {
+                    duration: 1,
+                    onComplete: function () {
+                        var chartInstance = this.chart,
+                            ctx = chartInstance.ctx;
+                        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+
+                        this.data.datasets.forEach(function (dataset, i) {
+                            var meta = chartInstance.controller.getDatasetMeta(i);
+                            meta.data.forEach(function (bar, index) {
+                                var data = dataset.data[index];                            
+                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                            });
+                        });
+                    }
                 }
             }
         });
