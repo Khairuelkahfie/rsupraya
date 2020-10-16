@@ -70,19 +70,45 @@
         });
        
         // menampilkan jumlah data pada setiap kecamatan
-        
+           
 
-
-            L.marker([-8.72174,	116.288597]).addTo(peta)
-            .bindPopup("<h3 style='width : 100px;'><?= $pry['kecamatan'] . ' '. $pry['al'] . 'Org'?></h3>")
-            .openPopup();
-                
-            // addTo(peta)
-            //     .bindPopup("<h3 style='width : 100px;'><?= $prb['kecamatan'] . ' '. $prb['al'] . ' Org' ?></h3>").openPopup();
-            // L.marker([-8.7728698, 116.1713917])
-            //     .openPopup("<h3 style='width : 100px;'><?= $pbd['kecamatan'] . ' '. $pbd['al'] . 'Org'?></h3>").addTo(peta);
-                    
-
+            var marker = new L.marker([-8.8407109, 116.2068354], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $prb['kecamatan'] . ' '. $prb['al'] . ' Org' ?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.7728698, 116.1713917], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $pbd['kecamatan'] . ' '. $pbd['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.8336359, 116.3013267], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $pjt['kecamatan'] . ' '. $pjt['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.7771594, 116.3839765], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $pti['kecamatan'] . ' '. $pti['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.71513, 116.4075854], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $jnp['kecamatan'] . ' '. $jnp['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.641832, 116.3563], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $kpg['kecamatan'] . ' '. $kpg['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.7104158,116.2722807], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $pry['kecamatan'] . ' '. $pry['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.7221426, 116.3131356], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $prt['kecamatan'] . ' '. $prt['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.6688303, 116.2186488], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $jgt['kecamatan'] . ' '. $jgt['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.6068562, 116.2422739], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $prg['kecamatan'] . ' '. $prg['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.621743, 116.3131356], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $Bk['kecamatan'] . ' '. $Bk['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            var marker = new L.marker([-8.468864, 116.3485586], { opacity: 0.05 }); //opacity may be set to zero
+            marker.bindTooltip("<?= $Bku['kecamatan'] . ' '. $Bku['al'] . ' Org'?>", {permanent: true, className: "my-label", offset: [0, 0] });
+            marker.addTo(peta);
+            
         // akhir menampilkan data pada setiap kecamatan
 
         

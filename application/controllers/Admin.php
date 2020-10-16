@@ -45,13 +45,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/barchart', $data);
 
     }
-    public function alamat()
-    {
-        $data = array(
-            'alamat'    => $this->rjalamat->persebaran()
-        );
-        $this->load->view('alamat', $data);
-    }
+   
     public function peta()
     {
         $alamat = $this->rjalamat->persebaran();
@@ -75,10 +69,6 @@ class Admin extends CI_Controller
         // die();
         $this->load->view('peta',$data);
     }
-    public function ala(){
-        $alamat = $this->rjalamat->persebaran();
-        // var_dump($alamat);
-        return json_encode($alamat);
-    }
+    
 
 }
