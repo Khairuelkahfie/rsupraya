@@ -105,20 +105,50 @@
             </div>
         </div>
     </div>
+    
     <div class="row justify-content-center">
         <div class="col-lg-10">
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-8">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Persebaran Penyakit di Lombok Tengah</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Peta Coba</h6>
                 </div>
-                <div class="card-body">
-                    <div id="mapku">
-                           
+                <div class="card-body" width="100%" height="80px">
+                    <div id="mapku" >
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <div class="" id="alamat" style="display:none"><?=$datak?></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <div class="row">
+        <div class="col-lg">
+            <div id="mapku">
+            </div>
+            
+        </div>
+    </div> -->
 
 </div>
 <!-- /.container-fluid -->

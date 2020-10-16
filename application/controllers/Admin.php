@@ -30,7 +30,21 @@ class Admin extends CI_Controller
             'rjdimwaktu'  => $this->rjtanggal->tampil(),
             'penyakitri'  => $this->penyakitri->tampilpenyakit(),
             'penyakitrijk'  => $this->penyakitri->tampilpenyakitjk(),
-            'alamat'    => $this->rjalamat->persebaran(),
+            'datak' => json_encode($alamat),
+            'data' => $alamat,
+            'Bk' => $alamat[0] , 
+            'Bku' => $alamat[1] , 
+            'jnp' => $alamat[2] , 
+            'jgt' => $alamat[3] , 
+            'kpg' => $alamat[4] , 
+            'pry' => $alamat[5] , 
+            'prb' => $alamat[6] , 
+            'pbd' => $alamat[7] , 
+            'prt' => $alamat[8] , 
+            'pti' => $alamat[9] , 
+            'prg' => $alamat[10] , 
+            'pjt' => $alamat[11] , 
+            
         );
         // var_dump($data['alamat']);
         // die();
@@ -39,11 +53,10 @@ class Admin extends CI_Controller
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
         $this->load->view('admin/index', $data);
-        $this->load->view('template/footer');
+        $this->load->view('template/footer', $data);
         $this->load->view('admin/piechart', $data);
         $this->load->view('admin/linechart', $data);
         $this->load->view('admin/barchart', $data);
-
     }
    
     public function peta()
