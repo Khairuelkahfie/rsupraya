@@ -32,20 +32,29 @@
     <!-- <script src="<?= base_url('assets/') ?>js/loteng.js"></script> -->
     <script src="<?= base_url('assets/') ?>js/leaflet.uGeoJSON.js"></script>
     <script>
+    
+  
+
     var kec = L.layerGroup();
        
-        L.marker([-8.8407109, 116.2068354]).bindPopup("<h3 style='width : 100px;'><?= $prb['kecamatan'] . ' '. $prb['al'] . ' Org' ?></h3>").addTo(kec),
-        L.marker([-8.7728698, 116.1713917]).bindPopup("<h3 style='width : 100px;'><?= $pbd['kecamatan'] . ' '. $pbd['al'] . 'Org'?></h3>").addTo(kec),
-        L.marker([-8.8336359, 116.3013267]).bindPopup("<h3 style='width : 100px;'><?= $pjt['kecamatan'] . ' '. $pjt['al'] . 'Org'?></h3>").addTo(kec),
-        L.marker([-8.7771594, 116.3839765]).bindPopup("<h3 style='width : 100px;'><?= $pti['kecamatan'] . ' '. $pti['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.71513, 116.4075854]).bindPopup("<h3 style='width : 100px;'><?= $jnp['kecamatan'] . ' '. $jnp['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.641832, 116.3563]).bindPopup("<h3 style='width : 100px;'><?= $kpg['kecamatan'] . ' '. $kpg['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.72174,	116.288597]).bindPopup("<h3 style='width : 100px;'><?= $pry['kecamatan'] . ' '. $pry['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.7221426, 116.3131356]).bindPopup("<h3 style='width : 100px;'><?= $prt['kecamatan'] . ' '. $prt['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.6688303, 116.2186488]).bindPopup("<h3 style='width : 100px;'><?= $jgt['kecamatan'] . ' '. $jgt['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.6068562, 116.2422739]).bindPopup("<h3 style='width : 100px;'><?= $prg['kecamatan'] . ' '. $prg['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([-8.621743, 116.3131356]).bindPopup("<h3 style='width : 100px;'><?= $Bk['kecamatan'] . ' '. $Bk['al'] . 'Org'?></h3>").addTo(kec);
-        L.marker([	-8.468864, 116.3485586]).bindPopup("<h3 style='width : 100px;'><?= $Bku['kecamatan'] . ' '. $Bku['al'] . 'Org'?></h3>").addTo(kec);
+        
+        // // menampilkan jumlah data pada setiap kecamatan
+        // L.marker([-8.6068562, 116.2422739]).addTo(peta)
+        //     .bindPopup("<h3 style='width : 100px;'><?= $prb['kecamatan'] . ' '. $prb['al'] . ' Org' ?></h3>").openPopup();
+        // akhir menampilkan data pada setiap kecamatan
+        
+        // L.marker([-8.8407109, 116.2068354]).bindPopup("<h3 style='width : 100px;'><?= $prb['kecamatan'] . ' '. $prb['al'] . ' Org' ?></h3>").openPopup().addTo(kec),
+        // L.marker([-8.7728698, 116.1713917]).bindPopup("<h3 style='width : 100px;'><?= $pbd['kecamatan'] . ' '. $pbd['al'] . 'Org'?></h3>").addTo(kec),
+        // L.marker([-8.8336359, 116.3013267]).bindPopup("<h3 style='width : 100px;'><?= $pjt['kecamatan'] . ' '. $pjt['al'] . 'Org'?></h3>").addTo(kec),
+        // L.marker([-8.7771594, 116.3839765]).bindPopup("<h3 style='width : 100px;'><?= $pti['kecamatan'] . ' '. $pti['al'] . 'Org'?></h3>").addTo(kec);
+        // L.marker([-8.71513, 116.4075854]).bindPopup("<h3 style='width : 100px;'><?= $jnp['kecamatan'] . ' '. $jnp['al'] . 'Org'?></h3>").addTo(kec);
+        // L.marker([-8.641832, 116.3563]).bindPopup("<h3 style='width : 100px;'><?= $kpg['kecamatan'] . ' '. $kpg['al'] . 'Org'?></h3>").addTo(kec);
+        // L.marker([-8.72174,	116.288597]).bindPopup("<h3 style='width : 100px;'><?= $pry['kecamatan'] . ' '. $pry['al'] . 'Org'?></h3>").addTo(kec);
+        // L.marker([-8.7221426, 116.3131356]).bindPopup("<h3 style='width : 100px;'><?= $prt['kecamatan'] . ' '. $prt['al'] . 'Org'?></h3>").addTo(kec);
+        // L.marker([-8.6688303, 116.2186488]).bindPopup("<h3 style='width : 100px;'><?= $jgt['kecamatan'] . ' '. $jgt['al'] . 'Org'?></h3>").addTo(kec);
+        // L.marker([-8.6068562, 116.2422739]).bindPopup("<h3 style='width : 100px;'><?= $prg['kecamatan'] . ' '. $prg['al'] . 'Org'?></h3>").addTo(kec);
+        // L.marker([-8.621743, 116.3131356]).bindPopup("<h3 style='width : 100px;'><?= $Bk['kecamatan'] . ' '. $Bk['al'] . 'Org'?></h3>").addTo(kec);
+        // L.marker([	-8.468864, 116.3485586]).bindPopup("<h3 style='width : 100px;'><?= $Bku['kecamatan'] . ' '. $Bku['al'] . 'Org'?></h3>").addTo(kec);
         
               
 
@@ -59,14 +68,31 @@
         zoom: 11,
         layers: [streets, grayscale, kec]
         });
+       
+        // menampilkan jumlah data pada setiap kecamatan
+        
+
+
+            L.marker([-8.72174,	116.288597]).addTo(peta)
+            .bindPopup("<h3 style='width : 100px;'><?= $pry['kecamatan'] . ' '. $pry['al'] . 'Org'?></h3>")
+            .openPopup();
+                
+            // addTo(peta)
+            //     .bindPopup("<h3 style='width : 100px;'><?= $prb['kecamatan'] . ' '. $prb['al'] . ' Org' ?></h3>").openPopup();
+            // L.marker([-8.7728698, 116.1713917])
+            //     .openPopup("<h3 style='width : 100px;'><?= $pbd['kecamatan'] . ' '. $pbd['al'] . 'Org'?></h3>").addTo(peta);
+                    
+
+        // akhir menampilkan data pada setiap kecamatan
+
+        
+
         var baseLayers = {
 		"Grayscale": grayscale,
 		"Streets": streets
         };
 
-        var overlays = {
-            "Kecamatan": kec
-        };
+       
 
         var streets = L.tileLayer(mbUrl, {
             id: 'mapbox.streets',
@@ -91,12 +117,9 @@
 }
 function highlightFeature(e) {
     var layer = e.target;
-    info.update(layer.feature.properties);
 }
 
-function resetHighlight(e) {
-    info.update();
-}
+
 
 function zoomToFeature(e) {
     peta.fitBounds(e.target.getBounds());
@@ -104,7 +127,7 @@ function zoomToFeature(e) {
 function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature,
-        mouseout: resetHighlight,
+        
         click: zoomToFeature
     });
 }
@@ -123,7 +146,7 @@ function style(a) {
         var bk = L.geoJSON([batukliang], {
             style: style(arr[0]),onEachFeature: onEachFeature
         }).addTo(peta);
-
+        // layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>');
         var bku = L.geoJSON([batu_keliang_utara], {
             style: style(arr[1]),onEachFeature: onEachFeature
         }).addTo(peta);
@@ -167,19 +190,8 @@ function style(a) {
         //         return feature.properties && feature.properties.style;
         //     }
         // }).addTo(peta);
-        L.control.layers(baseLayers, overlays).addTo(peta);
-        var info = L.control();
-info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-    this.update();
-    return this._div;
-};
-// method that we will use to update the control based on feature properties passed
-info.update = function (props) {
-    this._div.innerHTML = '<h4>Jumlah populasi Lombok Tengah</h4>' +  (props ?
-        '<b>' + props.NAMOBJ + '</b><br />' + props.density + ' Orang'
-        : 'Arahkan kursos untuk melihat data');
-};
+        L.control.layers(baseLayers).addTo(peta);
+        
 
 var legend = L.control({position: 'bottomright'});
 
@@ -201,7 +213,7 @@ legend.onAdd = function (map) {
 
 legend.addTo(peta);
 
-info.addTo(peta);
+
     </script>
     <style>
     .info {
