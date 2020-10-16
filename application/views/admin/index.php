@@ -110,12 +110,10 @@
         <div class="col-lg-10">
             <div class="card shadow mb-8">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Peta Coba</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Peta Persebaran Penyakit</h6>
                 </div>
-                <div class="card-body">
+                <div class="card-body map">
                     <div id="mapku">
-                          <br>
-                          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                           <div class="" id="alamat" style="display:none"><?=$datak?></div>
                     </div>
                 </div>

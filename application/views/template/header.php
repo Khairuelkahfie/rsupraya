@@ -18,14 +18,16 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/') ?>css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>leaflet/leaflet.css">
-    <!-- <style>
+    <style>
     #mapku {
 	width: 100%;
 	height:100%;
-}
-.leaflet-popup-content {
-	width:auto !important;
-}
-    </style> -->
+    }
+    .map{
+        width: 100%;
+	    height: 900px;
+    }
+
+    </style>
 
 </head>
